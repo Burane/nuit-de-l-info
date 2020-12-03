@@ -13,7 +13,7 @@ function App() {
     // Return the App component.
     return (
         <div className="App">
-            <SignIn/>
+            <SignIn />
         </div>
     );
 }
