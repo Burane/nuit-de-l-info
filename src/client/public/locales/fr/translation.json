@@ -1,0 +1,12 @@
+{
+    "connexion": {
+        "signin": "Se connecter",
+        "forget": {
+            "password": "Mot de passe oublié ?",
+            "username": "Adresse mail oublié ?"
+        },
+        "request" : {
+            "signup": "Créer un compte !"
+        }
+    }
+}
