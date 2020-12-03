@@ -3,7 +3,7 @@ module.exports = Object.freeze({
 
   mongoose: require('mongoose'),
 
-  bcrypt: require('bcrypt')
+  bcrypt: require('bcrypt'),
 
   dbConnect: async function () {
     await this.mongoose.connect('mongodb://localhost/501', {
@@ -32,8 +32,6 @@ module.exports = Object.freeze({
       return null
     }
 
-};
-
-
-
+  }
+  
 })
