@@ -3,6 +3,14 @@ module.exports = {
     // directory name: 'build directory'
     public: '/',
     src: '/_dist_',
-   },
-   plugins: ['@snowpack/plugin-react-refresh'],
+  },
+  plugins: [
+    ['@snowpack/plugin-react-refresh'],
+    [
+      '@snowpack/plugin-webpack',
+      {
+        /* see "Plugin Options" below */
+      },
+    ],
+  ],
 };

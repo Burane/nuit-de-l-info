@@ -14,10 +14,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <p>
-                    Page has been open for <code>{count}</code> seconds.
-        </p>
-
+                <p>Page has been open for <code>{count}</code> seconds.</p>
                 <img src={logo} className="App-logo" alt="logo" />
             </header>
         </div>
