@@ -1,4 +1,4 @@
-const common = require('common');
+const common = require('./common');
 const Waterman = common.mongoose.model('Waterman')
 const bcrypt = require('bcrypt');
 const { hashPassword } = require('./common');
@@ -7,7 +7,7 @@ const { hashPassword } = require('./common');
 
 module.exports = {
   
-  create: function (req, res) {
+  create: async function (req, res) {
     try {
       await common.dbConnect()
       const waterman = new Waterman();
@@ -32,7 +32,7 @@ module.exports = {
     }
     
   },
-  read: function (req, res) {
+  read: async function (req, res) {
     await common.dbConnect()
     const result = await Waterman.findById(req.params.id).exec();
     delete result.hash;
@@ -41,7 +41,7 @@ module.exports = {
   },
 
 
-  delete: function (req, res) {
+  delete: async function (req, res) {
     await common.dbConnect()
     try {
       await Waterman.findByIdAndDelete(req.params.id)

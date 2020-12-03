@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var watermanRouter = require('./routes/waterman')
 
 const conf = require('./conf')
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/waterman', watermanRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -34,7 +36,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({ error: 'error' });
 });
 
 app.listen(port = conf.port, () => {
