@@ -8,6 +8,8 @@ const recordSchema = new Schema({
     sessionEndDate   : {type: Date, required: true},
     spot             : {type: Schema.Types.ObjectId, ref: 'Spot'    , required: true}, 
     waterman         : {type: Schema.Types.ObjectId, ref: 'Waterman', required: true},
+    objects          : [{type: Schema.Types.ObjectId, ref: 'ObjectRecord', required: true}],
+    products         : [{type: Schema.Types:ObjectId, ref: 'ProductRecord', required: true}],
     comment          : String
 })
 
