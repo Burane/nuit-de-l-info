@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const spotSchema = new Schema({
     name: {type: String, required: true} ,
-    desc: {type: String, required: false}, 
+    desc: {type: String, required: false},
     lat : {type: Number, required: true} ,
     lon : {type: Number, required: true}
 })

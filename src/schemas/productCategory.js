@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const productCategorySchema = new Schema({
     name: {type: String, required = true},
     desc: {type: String, required = true},
-}) 
+})
 
 productCategorySchema
 .virtual('url')
