@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const objectRecordSchema = new Schema({
-    object         : {type: Schema.Types.ObjectId, ref: 'Waterman', required: true},
+    object         : {type: Schema.Types.ObjectId, ref: 'Object', required: true},
     quantity       : {type: Number, required: true},
     comment        : String
 })
