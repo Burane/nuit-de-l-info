@@ -37,6 +37,7 @@ function SignInPage() {
   const classes = useStyles();
 
   const { t, i18n } = useTranslation();
+
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
   };
