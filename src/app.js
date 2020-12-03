@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const conf = require('./conf')
+
 var app = express();
 
 // view engine setup
@@ -34,5 +36,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${conf.port}`)
+})
 
 module.exports = app;
