@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/501');
+require('./schemas/waterman');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var watermanRouter = require('./routes/waterman')
@@ -19,8 +23,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/waterman', watermanRouter)
 
 // catch 404 and forward to error handler

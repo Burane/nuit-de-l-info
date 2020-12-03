@@ -7,9 +7,8 @@ const { hashPassword } = require('./common');
 
 module.exports = {
   
-  create: async function (req, res) {
+  create: function (req, res) {
     try {
-      await common.dbConnect()
       const waterman = new Waterman();
       waterman.username = req.params.username;
       waterman.firstName = req.params.firstName;
@@ -21,7 +20,7 @@ module.exports = {
       if (req.startedPractice) {
         waterman.startedPractice = req.params.startedPractice
       }
-      hashres = await hashPassword(req.params.passworld)
+      hashres = hashPassword(req.params.passworld)
       waterman.passwordHash = hashres.hash
       waterman.passwordSalt = hashres.salt
       waterman.save();
@@ -32,19 +31,17 @@ module.exports = {
     }
     
   },
-  read: async function (req, res) {
-    await common.dbConnect()
-    const result = await Waterman.findById(req.params.id).exec();
+  read: function (req, res) {
+    const result = Waterman.findById(req.params.id).exec();
     delete result.hash;
     delete result.salt;
     res.send(result)
   },
 
 
-  delete: async function (req, res) {
-    await common.dbConnect()
+  delete: function (req, res) {
     try {
-      await Waterman.findByIdAndDelete(req.params.id)
+      Waterman.findByIdAndDelete(req.params.id)
       res.send({status:"OK"})
     }
     catch {

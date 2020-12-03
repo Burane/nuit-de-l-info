@@ -44,4 +44,4 @@ WatermanSchema
     return '/waterman/' + this._id;
   });
 
-module.exports = mongoose.model('Waterman', WatermanSchema);
+module.exports = mongoose.model('Waterman', WatermanSchema)

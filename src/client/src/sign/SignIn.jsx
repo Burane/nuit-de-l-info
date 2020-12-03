@@ -91,16 +91,17 @@ export default function SignIn() {
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-              {t('connexion.forget.password')}
+                {t('connexion.forget.password')}
               </Link>
             </Grid>
             <Grid item>
               <Link href="#" variant="body2">
-              {t('connexion.request.signup')}
+                {t('connexion.request.signup')}
               </Link>
             </Grid>
           </Grid>
         </form>
+
         <button onClick={() => changeLanguage('fr')}>fr</button>
         <button onClick={() => changeLanguage('l33tsp34k')}>l33t sp34k</button>
       </div>
