@@ -37,8 +37,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${conf.port}`)
+app.listen(port = conf.port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 })
 
 module.exports = app;
