@@ -1,12 +1,15 @@
 {
-    "connexion":{
-        "signin" : "ZE K0nNEc7eR",
-        "forget" : {
+    "connexion": {
+        "signin": "ZE K0nNEc7eR",
+        "forget": {
             "password": "M07 d3 p4S23 0ubLIÉ ?",
             "username": "4dR3S23 m41l 0u8L1É ?"
         },
-        "request" : {
+        "request": {
             "signup": "CrÉ3r un k0mp73 !"
-        }
+        },
+        "username": "N0M D'u71l15473uR",
+        "password": "m07 de P422e",
+        "remember": "23 50uV3n1R D3 M01"
     }
 }

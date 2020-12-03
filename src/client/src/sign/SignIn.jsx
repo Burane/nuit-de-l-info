@@ -59,7 +59,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label={t('connexion.username')}
             name="email"
             autoComplete="email"
             autoFocus
@@ -70,14 +70,14 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label={t('connexion.password')}
             type="password"
             id="password"
             autoComplete="current-password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label={t('connexion.remember')}
           />
           <Button
             type="submit"
