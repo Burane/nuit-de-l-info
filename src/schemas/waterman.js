@@ -1,9 +1,9 @@
 
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-let WatermanSchema = new Schema({
+const WatermanSchema = new Schema({
     firstName       : {type: String, required:true},
     lastName        : {type: String, required:true},
     passwordHash    : {type: String, required:true},
@@ -14,7 +14,7 @@ let WatermanSchema = new Schema({
 WatermanSchema
 .virtual('url')
 .get(function () {
-  return '/waterman' + this._id;
+  return '/waterman/' + this._id;
 });
 
 module.exports = mongoose.model('Waterman', WatermanSchema);
