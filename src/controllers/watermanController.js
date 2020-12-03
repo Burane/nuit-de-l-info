@@ -8,31 +8,48 @@ const { hashPassword } = require('./common');
 module.exports = {
   
   create: function (req, res) {
-    const waterman = new Waterman();
-    waterman.username  = req.username;
-    waterman.firstName = req.firstName;
-    waterman.lastName = req.lastName;
-    waterman.mail = req.mail;
-    waterman.birthDate = req.birthDate
+    try {
+      await common.dbConnect()
+      const waterman = new Waterman();
+      waterman.username = req.params.username;
+      waterman.firstName = req.params.firstName;
+      waterman.lastName = req.params.lastName;
+      waterman.mail = req.params.mail;
+      waterman.birthDate = req.params.birthDate
 
-    //Password hashing
-    if (req.startedPractice) {
-      waterman.startedPractice = req.startedPractice
+      //Password hashing
+      if (req.startedPractice) {
+        waterman.startedPractice = req.params.startedPractice
+      }
+      hashres = await hashPassword(req.params.passworld)
+      waterman.passwordHash = hashres.hash
+      waterman.passwordSalt = hashres.salt
+      waterman.save();
+      res.send({ status: "OK" })
     }
-    hashres = hashPassword(req.passworld)
-    waterman.hash = hashres.hash
-    waterman.salt = hashres.salt
-
-    instance.save(function (err) {
-    });
+    catch {
+      res.send({ status: "NOK" })
+    }
     
   },
   read: function (req, res) {
-    
+    await common.dbConnect()
+    const result = await Waterman.findById(req.params.id).exec();
+    delete result.hash;
+    delete result.salt;
+    res.send(result)
   },
 
 
   delete: function (req, res) {
+    await common.dbConnect()
+    try {
+      await Waterman.findByIdAndDelete(req.params.id)
+      res.send({status:"OK"})
+    }
+    catch {
+      res.send({status:"NOK"})
+    }
 
   }
 }
