@@ -39,11 +39,7 @@ const useStyles = makeStyles((theme) => ({
 function SignInPage() {
   const classes = useStyles();
 
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = lng => {
-    i18n.changeLanguage(lng);
-  };
+  const { t } = useTranslation();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -104,9 +100,6 @@ function SignInPage() {
             </Grid>
           </Grid>
         </form>
-
-        <button onClick={() => changeLanguage('fr')}>fr</button>
-        <button onClick={() => changeLanguage('l33tsp34k')}>l33t sp34k</button>
       </div>
     </Container>
   );
