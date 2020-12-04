@@ -5,11 +5,7 @@ import SignUp from './components/sign/SignUp'
 import NavBar from './components/navbar/NavBar'
 import {
     Switch,
-    Route,
-    Link,
-    Redirect,
-    useHistory,
-    useLocation
+    Route
 } from "react-router-dom";
 function App() {
     // Return the App component.

@@ -23,22 +23,23 @@ const styles = {
     grow: {
         flexGrow: 1,
     },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
+
 };
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+    },
+    paper: {
+        marginRight: theme.spacing(2),
+    },
+    test: {
+        marginLeft: 'auto'
+    }
+}));
 
 function MenuListComposition() {
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            display: 'flex',
-        },
-        paper: {
-            marginRight: theme.spacing(2),
-        },
-    }));
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -74,13 +75,14 @@ function MenuListComposition() {
     }, [open]);
 
     return (
-        <div className={classes.root}>
+        <div className={classes.test}>
             <div>
                 <Button
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
                     onClick={handleToggle}
+                    color="inherit"
                 >
                     Account
           </Button>
@@ -112,13 +114,10 @@ function ButtonAppBar(props) {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuItem component={Link} to="/"></MenuItem>
-                        <HomeIcon />
+                    <IconButton  component={Link} to="/home" edge="start" className={classes.menuButton} color="inherit" aria-label="home">
+                        <HomeIcon fontSize="large" />
                     </IconButton>
-                    <Typography variant="h6" color="inherit" className={classes.grow}>
-                        Super Surfer
-          </Typography>
+                    <Typography variant="h6" className={classes.title}>Home</Typography>
                     <MenuListComposition />
                 </Toolbar>
             </AppBar>
