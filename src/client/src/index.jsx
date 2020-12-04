@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import './i18n';
 import App from './App.jsx';
+import { BrowserRouter } from 'react-router-dom'
+
 
 ReactDOM.render(
-    <React.StrictMode>
+    <BrowserRouter>
         <App />
-    </React.StrictMode>,
+    </BrowserRouter>,
     document.getElementById('root'),
 );
 

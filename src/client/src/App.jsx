@@ -1,19 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import SignIn from './sign/SignIn'
-
+import SignIn from './components/sign/SignIn'
+import SignUp from './components/sign/SignUp'
+import NavBar from './components/navbar/NavBar'
+import {
+    Switch,
+    Route
+} from "react-router-dom";
 function App() {
-    // Create the count state.
-    const [count, setCount] = useState(0);
-    // Create the counter (+1 every second).
-    useEffect(() => {
-        const timer = setTimeout(() => setCount(count + 1), 1000);
-        return () => clearTimeout(timer);
-    }, [count, setCount]);
     // Return the App component.
     return (
         <div className="App">
-            <SignIn/>
+            <NavBar />
+            <Switch>
+                <Route path="/login">
+                    <SignIn />
+                </Route>
+                <Route path="/signup">
+                    <SignUp />
+                </Route>
+                <Route path="/">
+                    <h1>ROUTE DEFAULT</h1>
+                </Route>
+            </Switch>
         </div>
     );
 }

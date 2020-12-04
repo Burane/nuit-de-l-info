@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,12 +7,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useTranslation } from 'react-i18next';
+import { Link as RLink } from 'react-router-dom';
 
+import Loader from '../loader/Loader'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,8 +36,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+function SignInPage() {
   const classes = useStyles();
+
+  const { t } = useTranslation();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -45,7 +49,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          {t('connexion.signin')}
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -54,7 +58,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label={t('connexion.username')}
             name="email"
             autoComplete="email"
             autoFocus
@@ -65,14 +69,14 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label={t('connexion.password')}
             type="password"
             id="password"
             autoComplete="current-password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label={t('connexion.remember')}
           />
           <Button
             type="submit"
@@ -81,17 +85,17 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            {t('connexion.signin')}
           </Button>
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
-                Forgot password?
+                {t('connexion.forget.password')}
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link component={RLink} to="/signup" variant="body2">
+                {t('connexion.request.signup')}
               </Link>
             </Grid>
           </Grid>
@@ -100,3 +104,11 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default function signIn() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <SignInPage />
+    </Suspense>
+  )
+};
