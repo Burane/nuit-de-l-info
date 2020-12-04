@@ -14,6 +14,8 @@ import Container from '@material-ui/core/Container';
 import { useTranslation } from 'react-i18next';
 import { Link as RLink } from 'react-router-dom';
 
+import Loader from '../loader/Loader'
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -109,12 +111,6 @@ function SignInPage() {
     </Container>
   );
 }
-
-const Loader = () => (
-  <div className="App">
-  </div>
-);
-
 
 export default function signIn() {
   return (

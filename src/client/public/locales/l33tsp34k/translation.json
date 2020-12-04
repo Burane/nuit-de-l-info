@@ -1,15 +1,20 @@
 {
     "connexion": {
         "signin": "ZE K0nNEc7eR",
+        "signup": "5'iN5CRIR3",
         "forget": {
             "password": "M07 d3 p4S23 0ubLIÉ ?",
             "username": "4dR3S23 m41l 0u8L1É ?"
         },
         "request": {
-            "signup": "CrÉ3r un k0mp73 !"
+            "signup": "CrÉ3r un k0mp73 !",
+            "signin": "v0u2 4v32 D3J4 Un K0mp73 ? K0NN3C732 v0u2 !"
         },
         "username": "N0M D'u71l15473uR",
         "password": "m07 de P422e",
-        "remember": "23 50uV3n1R D3 M01"
+        "remember": "23 50uV3n1R D3 M01",
+        "firstname": "PrÉNoM",
+        "lastname": "n0M",
+        "mail": "4dR3523 m41l"
     }
 }
