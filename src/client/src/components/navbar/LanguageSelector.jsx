@@ -6,20 +6,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { useTranslation } from 'react-i18next';
 import Loader from '../loader/Loader'
 
-const useStyles = makeStyles((theme) => ({
-    test: {
-        marginLeft: 'auto'
-    }
-}));
-
-
 function SimpleMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    const classes = useStyles();
 
     const { t, i18n } = useTranslation();
 
